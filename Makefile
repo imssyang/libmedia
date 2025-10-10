@@ -17,7 +17,7 @@ else ifeq ($(UNAME), Linux)
 	CC = gcc
 	CXX = g++
 	CFLAGS = -Wall -Wextra -fPIC -g -O0 -std=c++2a -I$(FFMPEG_HOME)/include
-	LDFLAGS = -L$(FFMPEG_HOME)/lib -Wl,-rpath,$(FFMPEG_HOME)/lib \
+	LDFLAGS = -L$(FFMPEG_HOME)/lib -Wl,-rpath,'$ORIGIN:$(FFMPEG_HOME)/lib' \
 		-lavcodec -lavformat -lavutil -lswscale -lswresample
 	SHARED_LDFLAGS = -shared -fPIC
 	STATIC_LIB = $(TARGET).a
