@@ -72,6 +72,6 @@ clean:
 	rm -rf $(OBJS) $(TEST_OBJS) \
 		$(STATIC_LIB) $(DYNAMIC_LIB) \
 		$(TARGET) $(TARGET).dSYM $(TEST_TARGET) \
-		nohup.out
+		$(INSTALL_DIR) nohup.out
 
 .PHONY: all clean run
