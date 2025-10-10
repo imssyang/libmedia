@@ -5,7 +5,7 @@ project(libmedia LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(ROOT_DIR "${CMAKE_CURRENT_LIST_DIR}")
+set(ROOT_DIR "${CMAKE_SOURCE_DIR}")
 set(TEST_DIR "${ROOT_DIR}/tests")
 set(INSTALL_DIR "${ROOT_DIR}/release")
 set(FFMPEG_HOME "/opt/ffmpeg")
@@ -63,7 +63,14 @@ add_executable(media_test ${TEST_SOURCES})
 target_include_directories(media_test PRIVATE .)
 target_link_libraries(media_test media_static ${FFMPEG_LIBS})
 
-install(DIRECTORY . DESTINATION ${INSTALL_DIR}/include FILES_MATCHING PATTERN "*.h")
+install(DIRECTORY ${ROOT_DIR}/
+    DESTINATION ${INSTALL_DIR}/include
+    FILES_MATCHING PATTERN "*.h"
+    PATTERN "build" EXCLUDE
+    PATTERN "release" EXCLUDE
+    PATTERN "tests" EXCLUDE
+    PATTERN "CMakeFiles" EXCLUDE
+)
 install(TARGETS media_static media_shared
     ARCHIVE DESTINATION ${INSTALL_DIR}/lib
     LIBRARY DESTINATION ${INSTALL_DIR}/lib
