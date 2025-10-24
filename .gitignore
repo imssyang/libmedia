@@ -3,5 +3,6 @@
 *.a
 *.dylib
 *.so
-tests/main
+build/
 release/
+tests/main
