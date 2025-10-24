@@ -1,13 +1,24 @@
 {
     "version": 4,
+    "env": {
+        "myIncludePath": [
+            "/opt/ffmpeg/archive/ffmpeg-8.0"
+        ],
+        "myDefines": [
+            "DEBUG"
+        ]
+    },
+    "enableConfigurationSquiggles": true,
     "configurations": [
         {
             "name": "MacOS",
             "includePath": [
-                "/opt/ffmpeg/archive/ffmpeg-7.1.2"
+                "${workspaceFolder}/**",
+                "${myIncludePath}"
             ],
             "defines": [
-                "__APPLE__"
+                "__APPLE__",
+                "${myDefines}"
             ],
             "compilerPath": "/usr/bin/clang++",
             "cStandard": "c17",
@@ -16,23 +27,37 @@
             "macFrameworkPath": [
                 "/System/Library/Frameworks",
                 "/Library/Frameworks"
-            ]
+            ],
+            "browse": {
+                "path": [
+                    "${myIncludePath}",
+                    "${workspaceFolder}"
+                ]
+            }
         },
         {
             "name": "Linux",
             "includePath": [
+                "${workspaceFolder}/**",
+                "${myIncludePath}",
                 "/usr/include",
-                "/usr/local/include",
-                "/opt/ffmpeg/archive/ffmpeg-7.1.2"
+                "/usr/local/include"
             ],
             "defines": [
-                "__LINUX__"
+                "__LINUX__",
+                "${myDefines}"
             ],
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
+            "configurationProvider": "ms-vscode.cmake-tools",
             "intelliSenseMode": "linux-gcc-x64",
-            "configurationProvider": "ms-vscode.cmake-tools"
+            "browse": {
+                "path": [
+                    "${myIncludePath}",
+                    "${workspaceFolder}"
+                ]
+            }
         }
     ]
 }

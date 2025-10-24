@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/opt/app/gweb/third_party/libmedia",
+    "cmake.sourceDirectory": "${workspaceFolder}",
     "files.associations": {
         "thread": "cpp",
         "algorithm": "cpp",
