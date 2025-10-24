@@ -1,0 +1,49 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "RunOnMacOS(Clang)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/tests/main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "BuildByClang",
+            "logging": {
+                "trace": false,
+                "traceResponse": false,
+                "engineLogging": false
+            }
+        },
+        {
+            "name": "RunOnLinux(GCC)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/tests/main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "BuildByGCC",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "logging": {
+                "trace": false,
+                "traceResponse": false,
+                "engineLogging": false
+            }
+        }
+    ]
+}

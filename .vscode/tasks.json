@@ -1,0 +1,131 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "PrintVariables",
+            "type": "shell",
+            "command": [
+                "echo 'cwd                         = ${cwd}';",
+                "echo 'columnNumber                = ${columnNumber}';",
+                "echo 'defaultBuildTask            = ${defaultBuildTask}';",
+                "echo 'file                        = ${file}';",
+                "echo 'fileBasename                = ${fileBasename}';",
+                "echo 'fileBasenameNoExtension     = ${fileBasenameNoExtension}';",
+                "echo 'fileDirname                 = ${fileDirname}';",
+                "echo 'fileDirnameBasename         = ${fileDirnameBasename}';",
+                "echo 'fileExtname                 = ${fileExtname}';",
+                "echo 'fileWorkspaceFolder         = ${fileWorkspaceFolder}';",
+                "echo 'execPath                    = ${execPath}';",
+                "echo 'lineNumber                  = ${lineNumber}';",
+                "echo 'pathSeparator               = ${pathSeparator}';",
+                "echo 'relativeFile                = ${relativeFile}';",
+                "echo 'relativeFileDirname         = ${relativeFileDirname}';",
+                "echo 'userHome                    = ${userHome}';",
+                "echo 'workspaceFolder             = ${workspaceFolder}';",
+                "echo 'workspaceFolderBasename     = ${workspaceFolderBasename}';",
+                "echo 'config:editor.fontSize      = ${config:editor.fontSize}';",
+                "echo 'env:PATH                    = ${env:PATH}';",
+                "echo 'env:SHELL                   = ${env:SHELL}';",
+                "echo 'env:USER                    = ${env:USER}';",
+                "echo 'input:ffmpegHome            = ${input:ffmpegHome}';"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Print VSCode variables."
+        },
+        {
+            "label": "BuildByClang",
+            "type": "cppbuild",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-o",
+                "${workspaceFolder}/tests/main",
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/tests/main.cpp",
+                "${workspaceFolder}/tests/test_ffmpeg.cpp",
+                "${workspaceFolder}/ffmpeg.cpp",
+                "${workspaceFolder}/avmanage.cpp",
+                "${workspaceFolder}/avmedia.cpp",
+                "${workspaceFolder}/avformat.cpp",
+                "${workspaceFolder}/avcodec.cpp",
+                "${workspaceFolder}/avutil.cpp",
+                "${workspaceFolder}/swscale.cpp",
+                "${workspaceFolder}/swresample.cpp",
+                "-std=c++2a",
+                "-I${input:ffmpegHome}/include",
+                "-L${input:ffmpegHome}/lib",
+                "-Wl,-rpath,${input:ffmpegHome}/lib",
+                "-lavcodec",
+                "-lavformat",
+                "-lavutil",
+                "-lswscale",
+                "-lswresample"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "Generated task by the C/C++ extension."
+        },
+        {
+            "label": "BuildByGCC",
+            "type": "cppbuild",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-o",
+                "${workspaceFolder}/tests/main",
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/tests/main.cpp",
+                "${workspaceFolder}/tests/test_ffmpeg.cpp",
+                "${workspaceFolder}/ffmpeg.cpp",
+                "${workspaceFolder}/avmanage.cpp",
+                "${workspaceFolder}/avmedia.cpp",
+                "${workspaceFolder}/avformat.cpp",
+                "${workspaceFolder}/avcodec.cpp",
+                "${workspaceFolder}/avutil.cpp",
+                "${workspaceFolder}/swscale.cpp",
+                "${workspaceFolder}/swresample.cpp",
+                "-std=c++2a",
+                "-I${input:ffmpegHome}/include",
+                "-L${input:ffmpegHome}/lib",
+                "-Wl,-rpath,${input:ffmpegHome}/lib",
+                "-lavcodec",
+                "-lavformat",
+                "-lavutil",
+                "-lswscale",
+                "-lswresample"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Generated task by the C/C++ extension."
+        }
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "ffmpegHome",
+            "description": "FFmpeg root directory",
+            "options": [
+                "/opt/ffmpeg"
+            ],
+            "default": "/opt/ffmpeg"
+        }
+    ]
+}
