@@ -4,5 +4,7 @@
 *.dylib
 *.so
 build/
+deps/*
+!deps/README.md
 release/
 tests/main

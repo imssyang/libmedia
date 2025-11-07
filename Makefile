@@ -1,6 +1,6 @@
 ROOT_DIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 INSTALL_DIR := $(ROOT_DIR)/release
-FFMPEG_HOME ?= /opt/ffmpeg
+FFMPEG_HOME ?= $(ROOT_DIR)/deps/ffmpeg-8.0
 
 TARGET := libmedia
 UNAME := $(shell uname)

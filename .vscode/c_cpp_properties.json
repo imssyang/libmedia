@@ -1,24 +1,13 @@
 {
     "version": 4,
-    "env": {
-        "myIncludePath": [
-            "/opt/ffmpeg/archive/ffmpeg-8.0"
-        ],
-        "myDefines": [
-            "DEBUG"
-        ]
-    },
-    "enableConfigurationSquiggles": true,
     "configurations": [
         {
             "name": "MacOS",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${myIncludePath}"
+                "${workspaceFolder}/src/**"
             ],
             "defines": [
-                "__APPLE__",
-                "${myDefines}"
+                "__APPLE__"
             ],
             "compilerPath": "/usr/bin/clang++",
             "cStandard": "c17",
@@ -30,22 +19,20 @@
             ],
             "browse": {
                 "path": [
-                    "${myIncludePath}",
-                    "${workspaceFolder}"
-                ]
+                    "${workspaceFolder}/deps"
+                ],
+                "limitSymbolsToIncludedHeaders": false
             }
         },
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${myIncludePath}",
+                "${workspaceFolder}/src/**",
                 "/usr/include",
                 "/usr/local/include"
             ],
             "defines": [
-                "__LINUX__",
-                "${myDefines}"
+                "__LINUX__"
             ],
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
@@ -54,9 +41,9 @@
             "intelliSenseMode": "linux-gcc-x64",
             "browse": {
                 "path": [
-                    "${myIncludePath}",
-                    "${workspaceFolder}"
-                ]
+                    "${workspaceFolder}/deps"
+                ],
+                "limitSymbolsToIncludedHeaders": false
             }
         }
     ]

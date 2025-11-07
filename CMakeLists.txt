@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(ROOT_DIR "${CMAKE_SOURCE_DIR}")
 set(TEST_DIR "${ROOT_DIR}/tests")
 set(INSTALL_DIR "${ROOT_DIR}/release")
-set(FFMPEG_HOME "/opt/ffmpeg")
+set(FFMPEG_HOME "${workspaceFolder}/deps/ffmpeg-8.0")
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
     set(CMAKE_C_COMPILER clang)

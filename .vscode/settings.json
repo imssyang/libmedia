@@ -1,5 +1,7 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}",
+    "C_Cpp.loggingLevel": "Debug",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.sourceDirectory": "${workspaceFolder}/src",
     "files.associations": {
         "thread": "cpp",
         "algorithm": "cpp",
