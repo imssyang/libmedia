@@ -1,6 +1,6 @@
 #include <cassert>
 #include "test_ffmpeg.h"
-#include "../avmedia.h"
+#include "../src/avmedia.h"
 
 void test_demux(const std::string& uri) {
     auto origin = FFAVDemuxer::Create(uri);

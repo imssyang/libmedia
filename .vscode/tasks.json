@@ -123,9 +123,9 @@
             "id": "ffmpegHome",
             "description": "FFmpeg root directory",
             "options": [
-                "${workspaceFolder}/deps/ffmpeg-8.0"
+                "${workspaceFolder}/deps/ffmpeg-7.1"
             ],
-            "default": "${workspaceFolder}/deps/ffmpeg-8.0"
+            "default": "${workspaceFolder}/deps/ffmpeg-7.1"
         }
     ]
 }

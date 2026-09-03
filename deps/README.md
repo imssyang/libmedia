@@ -1,1 +1,1 @@
-deps/ffmpeg-8.0
+deps/ffmpeg-7.1 compiled

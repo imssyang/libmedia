@@ -39,7 +39,7 @@
                 },
                 {
                     "description": "Map ffmpeg binary to source path",
-                    "text": "set substitute-path /opt/ffmpeg ${workspaceFolder}/deps/ffmpeg-8.0",
+                    "text": "set substitute-path /opt/ffmpeg ${workspaceFolder}/deps/ffmpeg-7.1",
                     "ignoreFailures": true
                 }
             ],
