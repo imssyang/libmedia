@@ -201,12 +201,16 @@ endif()
 # ---------------------------------------------------------
 
 include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
 
 # Libraries
 install(
     TARGETS
         media_static
         media_shared
+
+    EXPORT
+        libmediaTargets
 
     ARCHIVE DESTINATION
         ${CMAKE_INSTALL_LIBDIR}
@@ -216,6 +220,9 @@ install(
 
     RUNTIME DESTINATION
         ${CMAKE_INSTALL_BINDIR}
+
+    INCLUDES DESTINATION
+        ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 # Public headers
@@ -225,4 +232,47 @@ install(
 
     DESTINATION
         ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+# CMake package
+install(
+    EXPORT
+        libmediaTargets
+
+    FILE
+        libmediaTargets.cmake
+
+    NAMESPACE
+        libmedia::
+
+    DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/libmedia
+)
+
+configure_package_config_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/libmediaConfig.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/libmediaConfig.cmake"
+
+    INSTALL_DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/libmedia
+)
+
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/libmediaConfigVersion.cmake"
+
+    VERSION
+        ${PROJECT_VERSION}
+
+    COMPATIBILITY
+        SameMajorVersion
+)
+
+install(
+    FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/cmake/FindFFmpeg.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/libmediaConfig.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/libmediaConfigVersion.cmake"
+
+    DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/libmedia
 )

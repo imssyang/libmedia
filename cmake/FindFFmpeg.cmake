@@ -136,6 +136,36 @@ if(FFmpeg_FOUND)
 
     endforeach()
 
+    # FFmpeg dependency graph
+    set_property(
+        TARGET FFmpeg::avformat
+        APPEND PROPERTY
+            INTERFACE_LINK_LIBRARIES
+                FFmpeg::avcodec
+                FFmpeg::avutil
+    )
+
+    set_property(
+        TARGET FFmpeg::avcodec
+        APPEND PROPERTY
+            INTERFACE_LINK_LIBRARIES
+                FFmpeg::avutil
+    )
+
+    set_property(
+        TARGET FFmpeg::swscale
+        APPEND PROPERTY
+            INTERFACE_LINK_LIBRARIES
+                FFmpeg::avutil
+    )
+
+    set_property(
+        TARGET FFmpeg::swresample
+        APPEND PROPERTY
+            INTERFACE_LINK_LIBRARIES
+                FFmpeg::avutil
+    )
+
 endif()
 
 # ---------------------------------------------------------------------------

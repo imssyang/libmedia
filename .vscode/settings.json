@@ -1,6 +1,7 @@
 {
     "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
     "C_Cpp.loggingLevel": "Information",
+    "cmake.cmakePath": "/opt/homebrew/bin/cmake",
     "cmake.buildDirectory": "${workspaceFolder}/build",
     "cmake.sourceDirectory": "${workspaceFolder}/src",
     "files.associations": {
