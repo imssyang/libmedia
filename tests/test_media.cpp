@@ -1,5 +1,5 @@
-#include "test_ffmpeg.h"
-#include "../src/avcodec.h"
+#include "test_media.h"
+#include "avcodec.h"
 
 void test_demuxer(const std::string& uri) {
     uint32_t media_id = CreateMedia();

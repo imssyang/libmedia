@@ -2,6 +2,6 @@
 #include <cassert>
 #include <iostream>
 #include <string>
-#include "../src/ffmpeg.h"
+#include "libmedia/media.h"
 
 void test_demuxer(const std::string& uri);
