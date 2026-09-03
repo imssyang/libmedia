@@ -11,7 +11,7 @@
             ],
             "compilerPath": "/usr/bin/clang++",
             "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cppStandard": "c++20",
             "intelliSenseMode": "macos-clang-x64",
             "macFrameworkPath": [
                 "/System/Library/Frameworks",
@@ -27,16 +27,14 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/src/**",
-                "/usr/include",
-                "/usr/local/include"
+                "${workspaceFolder}/src/**"
             ],
             "defines": [
                 "__LINUX__"
             ],
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cppStandard": "c++20",
             "configurationProvider": "ms-vscode.cmake-tools",
             "intelliSenseMode": "linux-gcc-x64",
             "browse": {
